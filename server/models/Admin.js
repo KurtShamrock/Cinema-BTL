@@ -5,16 +5,16 @@ const Sequelize = require("sequelize");
 const Admin = db.define("admin", {
   id:{
     type: Sequelize.INTEGER,
-    allowNull: false,
     primaryKey: true
   },
   email: {
     type: Sequelize.STRING,
-    unique: true
+    unique: true,
+    allowNull: false
   },
   password: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: true
   },
 
   fullname: {

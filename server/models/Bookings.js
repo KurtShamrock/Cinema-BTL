@@ -11,10 +11,12 @@ const Bookings = db.define('bookings', {
     primaryKey: true
   },
   id: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    allowNull: true
   },
   showtime_id: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    allowNull: true
   },
   total:{
     type: Sequelize.INTEGER,

@@ -12,7 +12,8 @@ const Cinemas = db.define("Cinemas", {
     allowNull: false
   },
   cineplex_id: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    allowNull: true
   },
   //MaCum
   vertical_size: {
