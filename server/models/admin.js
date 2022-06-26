@@ -1,23 +1,43 @@
-module.exports = (sequelize, DataTypes) => {
-  const Admin = sequelize.define(
-    'Admin',
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      fullname: DataTypes.STRING,
-      phone: DataTypes.STRING,
-      password: DataTypes.STRING,
-      email: DataTypes.STRING,
-      address: DataTypes.STRING,
-      avatar: DataTypes.TEXT,
-    },
-    {}
-  );
+const db = require("../config/db");
 
-  Admin.associate = function () {};
+const Sequelize = require("sequelize");
 
-  return Admin;
-};
+const Admin = db.define("admin", {
+  id:{
+    type: Sequelize.INTEGER,
+    primaryKey: true
+  },
+  email: {
+    type: Sequelize.STRING,
+    unique: true,
+    allowNull: false
+  },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: true
+  },
+
+  fullname: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  phone: {
+    type: Sequelize.STRING,
+    unique:true,
+    allowNull: false
+  },
+  avata: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  createat: {
+    type: Sequelize.TEXT,
+    allowNull: false
+  },
+  updateat: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  }
+});
+
+module.exports = Admin
